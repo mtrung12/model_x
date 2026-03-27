@@ -1,0 +1,16 @@
+Pipeline:
+
+RAG: 
+vector database: lưu theo từng trait (how???, which format, which info)
+retrieve: same method as p2p, average pooling for features + raw text
+
+
+Injection: nên injection hay không
+
+Hướng 2 nếu không injection: Có thể dùng debate 
+
+Hướng 3: Đơn giản dùng 2 LLM đưa ra prediction rồi nếu match -> dự đoán -> không match -> dùng judge?
+(Hướng 3 cần tiêu chí đánh giá)
+
+
+

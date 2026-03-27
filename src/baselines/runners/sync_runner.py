@@ -40,16 +40,19 @@ def run_llama(
     prompt_mode: str = "zeroshot",
     output_dir: str = None,
     train_csv: str = None,
+    log_filepath: str = None,
 ):
     if output_dir is None:
         output_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "experiment", model_name, prompt_mode)
     os.makedirs(output_dir, exist_ok=True)
 
-    log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "log", model_name, prompt_mode)
-    os.makedirs(log_dir, exist_ok=True)
-
-    run_id = time.strftime("%Y%m%d-%H%M%S")
-    log_filepath = os.path.join(log_dir, f"{run_id}.log")
+    if log_filepath is None:
+        log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "log", model_name, prompt_mode)
+        os.makedirs(log_dir, exist_ok=True)
+        run_id = time.strftime("%Y%m%d-%H%M%S")
+        log_filepath = os.path.join(log_dir, f"{run_id}.log")
+    else:
+        run_id = os.path.splitext(os.path.basename(log_filepath))[0]
     df = pd.read_csv(test_csv)
     n_records = len(df)
     print(f"[{run_id}] Loaded {n_records} records from {test_csv}")
