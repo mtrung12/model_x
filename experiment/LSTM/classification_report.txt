@@ -1,0 +1,76 @@
+======================================================================
+Personality Trait Detection — Classification Report
+======================================================================
+Run ID      : 20260325-173143
+Model       : PersonalityLSTM (BiLSTM)
+Test file   : test.csv
+Test samples: 247
+Embed dim   : 128
+Hidden dim  : 128
+Num layers  : 2
+Max seq len : 512
+Epochs      : 7
+LR          : 0.001 | Batch size: 32
+Vocabulary  : 11315 (min_freq=2)
+======================================================================
+
+--- cOPN (Openness) ---
+Accuracy: 0.5749 | F1 (weighted): 0.5632
+              precision    recall  f1-score   support
+
+         low     0.5904    0.4083    0.4828       120
+        high     0.5671    0.7323    0.6392       127
+
+    accuracy                         0.5749       247
+   macro avg     0.5787    0.5703    0.5610       247
+weighted avg     0.5784    0.5749    0.5632       247
+
+
+--- cCON (Conscientiousness) ---
+Accuracy: 0.5668 | F1 (weighted): 0.5646
+              precision    recall  f1-score   support
+
+         low     0.5532    0.6393    0.5932       122
+        high     0.5849    0.4960    0.5368       125
+
+    accuracy                         0.5668       247
+   macro avg     0.5690    0.5677    0.5650       247
+weighted avg     0.5692    0.5668    0.5646       247
+
+
+--- cEXT (Extraversion) ---
+Accuracy: 0.5547 | F1 (weighted): 0.5448
+              precision    recall  f1-score   support
+
+         low     0.5312    0.7083    0.6071       120
+        high     0.5977    0.4094    0.4860       127
+
+    accuracy                         0.5547       247
+   macro avg     0.5645    0.5589    0.5466       247
+weighted avg     0.5654    0.5547    0.5448       247
+
+
+--- cAGR (Agreeableness) ---
+Accuracy: 0.5992 | F1 (weighted): 0.5995
+              precision    recall  f1-score   support
+
+         low     0.5641    0.5789    0.5714       114
+        high     0.6308    0.6165    0.6236       133
+
+    accuracy                         0.5992       247
+   macro avg     0.5974    0.5977    0.5975       247
+weighted avg     0.6000    0.5992    0.5995       247
+
+
+--- cNEU (Neuroticism) ---
+Accuracy: 0.5830 | F1 (weighted): 0.5811
+              precision    recall  f1-score   support
+
+         low     0.5714    0.6504    0.6084       123
+        high     0.5981    0.5161    0.5541       124
+
+    accuracy                         0.5830       247
+   macro avg     0.5848    0.5833    0.5812       247
+weighted avg     0.5848    0.5830    0.5811       247
+
+======================================================================
