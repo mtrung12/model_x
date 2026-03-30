@@ -1,0 +1,41 @@
+======================================================================\nPersonality Trait Detection — Classification Report\n======================================================================\n\nRun ID           : 20260328-040249\nModel            : meta-llama/Meta-Llama-3-8B-Instruct\nTest file        : /kaggle/working/half2.csv\n# Records        : 124\n# Failed         : 0\nPrompt mode      : cot\nTop-k RAG        : None\nVector DB        : None\nMax Concurrency  : 1\nElapsed (sec)    : 20073.10\nThroughput (r/s) : 0.01\n----------------------------------------------------------------------\n\n--- cEXT (Extraversion) ---\n              precision    recall  f1-score   support
+
+        high       0.61      0.40      0.48        57
+         low       0.60      0.78      0.68        67
+
+    accuracy                           0.60       124
+   macro avg       0.60      0.59      0.58       124
+weighted avg       0.60      0.60      0.59       124
+\n  Valid pairs: 124/124\n\n--- cNEU (Neuroticism) ---\n              precision    recall  f1-score   support
+
+        high       0.55      0.90      0.68        63
+         low       0.70      0.23      0.35        61
+
+    accuracy                           0.57       124
+   macro avg       0.62      0.57      0.51       124
+weighted avg       0.62      0.57      0.52       124
+\n  Valid pairs: 124/124\n\n--- cAGR (Agreeableness) ---\n              precision    recall  f1-score   support
+
+        high       0.65      0.33      0.44        67
+         low       0.50      0.79      0.61        57
+
+    accuracy                           0.54       124
+   macro avg       0.57      0.56      0.52       124
+weighted avg       0.58      0.54      0.52       124
+\n  Valid pairs: 124/124\n\n--- cCON (Conscientiousness) ---\n              precision    recall  f1-score   support
+
+        high       0.48      0.22      0.30        60
+         low       0.52      0.78      0.62        64
+
+    accuracy                           0.51       124
+   macro avg       0.50      0.50      0.46       124
+weighted avg       0.50      0.51      0.47       124
+\n  Valid pairs: 124/124\n\n--- cOPN (Openness) ---\n              precision    recall  f1-score   support
+
+        high       0.43      0.23      0.30        65
+         low       0.44      0.66      0.53        59
+
+    accuracy                           0.44       124
+   macro avg       0.43      0.45      0.41       124
+weighted avg       0.43      0.44      0.41       124
+\n  Valid pairs: 124/124\n\n======================================================================\nEnd of Report\n

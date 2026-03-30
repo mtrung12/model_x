@@ -1,41 +1,41 @@
-======================================================================\nPersonality Trait Detection — Classification Report\n======================================================================\n\nRun ID           : 20260327-120109\nModel            : gpt-4o-mini\nTest file        : ../../data/split/essays/minor_test.csv\n# Records        : 2\n# Failed         : 2\nPrompt mode      : oneshot\nTop-k RAG        : 5\nVector DB        : data/vector_db\nMax Concurrency  : 10\nElapsed (sec)    : 6.99\nThroughput (r/s) : 0.29\n----------------------------------------------------------------------\n\n--- cEXT (Extraversion) ---\n              precision    recall  f1-score   support
+======================================================================\nPersonality Trait Detection — Classification Report\n======================================================================\n\nRun ID           : 20260327-165649\nModel            : gpt-4o-mini\nTest file        : ../../data/split/essays/test.csv\n# Records        : 247\n# Failed         : 0\nPrompt mode      : oneshot\nTop-k RAG        : 5\nVector DB        : data/vector_db\nMax Concurrency  : 2\nElapsed (sec)    : 692.80\nThroughput (r/s) : 0.36\n----------------------------------------------------------------------\n\n--- cEXT (Extraversion) ---\n              precision    recall  f1-score   support
 
-        high       0.00      0.00      0.00       0.0
-         low       0.00      0.00      0.00       0.0
+        high       0.63      0.28      0.39       127
+         low       0.52      0.82      0.64       120
 
-   micro avg       0.00      0.00      0.00       0.0
-   macro avg       0.00      0.00      0.00       0.0
-weighted avg       0.00      0.00      0.00       0.0
-\n  Valid pairs: 0/2\n\n--- cNEU (Neuroticism) ---\n              precision    recall  f1-score   support
+    accuracy                           0.55       247
+   macro avg       0.58      0.55      0.52       247
+weighted avg       0.58      0.55      0.51       247
+\n  Valid pairs: 247/247\n\n--- cNEU (Neuroticism) ---\n              precision    recall  f1-score   support
 
-        high       0.00      0.00      0.00       0.0
-         low       0.00      0.00      0.00       0.0
+        high       0.55      0.77      0.64       124
+         low       0.61      0.37      0.46       123
 
-   micro avg       0.00      0.00      0.00       0.0
-   macro avg       0.00      0.00      0.00       0.0
-weighted avg       0.00      0.00      0.00       0.0
-\n  Valid pairs: 0/2\n\n--- cAGR (Agreeableness) ---\n              precision    recall  f1-score   support
+    accuracy                           0.57       247
+   macro avg       0.58      0.57      0.55       247
+weighted avg       0.58      0.57      0.55       247
+\n  Valid pairs: 247/247\n\n--- cAGR (Agreeableness) ---\n              precision    recall  f1-score   support
 
-        high       0.00      0.00      0.00       0.0
-         low       0.00      0.00      0.00       0.0
+        high       0.65      0.42      0.51       133
+         low       0.52      0.74      0.61       114
 
-   micro avg       0.00      0.00      0.00       0.0
-   macro avg       0.00      0.00      0.00       0.0
-weighted avg       0.00      0.00      0.00       0.0
-\n  Valid pairs: 0/2\n\n--- cCON (Conscientiousness) ---\n              precision    recall  f1-score   support
+    accuracy                           0.57       247
+   macro avg       0.59      0.58      0.56       247
+weighted avg       0.59      0.57      0.56       247
+\n  Valid pairs: 247/247\n\n--- cCON (Conscientiousness) ---\n              precision    recall  f1-score   support
 
-        high       0.00      0.00      0.00       0.0
-         low       0.00      0.00      0.00       0.0
+        high       0.71      0.26      0.38       125
+         low       0.54      0.89      0.67       122
 
-   micro avg       0.00      0.00      0.00       0.0
-   macro avg       0.00      0.00      0.00       0.0
-weighted avg       0.00      0.00      0.00       0.0
-\n  Valid pairs: 0/2\n\n--- cOPN (Openness) ---\n              precision    recall  f1-score   support
+    accuracy                           0.57       247
+   macro avg       0.63      0.57      0.52       247
+weighted avg       0.63      0.57      0.52       247
+\n  Valid pairs: 247/247\n\n--- cOPN (Openness) ---\n              precision    recall  f1-score   support
 
-        high       0.00      0.00      0.00       0.0
-         low       0.00      0.00      0.00       0.0
+        high       0.63      0.52      0.57       127
+         low       0.57      0.68      0.62       120
 
-   micro avg       0.00      0.00      0.00       0.0
-   macro avg       0.00      0.00      0.00       0.0
-weighted avg       0.00      0.00      0.00       0.0
-\n  Valid pairs: 0/2\n\n======================================================================\nEnd of Report\n
+    accuracy                           0.60       247
+   macro avg       0.60      0.60      0.59       247
+weighted avg       0.60      0.60      0.59       247
+\n  Valid pairs: 247/247\n\n======================================================================\nEnd of Report\n

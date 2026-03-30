@@ -1,7 +1,7 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
-from src.utils.log import log_to_file
+from src.utils.log import log_to_file, log_to_file_async
 
 try:
     import nest_asyncio
