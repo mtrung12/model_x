@@ -1,5 +1,6 @@
 import os
 import time
+import random
 import pandas as pd
 
 from ..prompts import (
@@ -16,7 +17,7 @@ from ..retriever import RAGRetriever
 
 
 EXPLAINER_MAX_TOKENS = 512
-JUDGE_MAX_TOKENS = 256
+JUDGE_MAX_TOKENS = 512
 
 
 def _build_explainer_prompts(trait: str, trait_level: str, user_text: str, sim_text: str):
@@ -137,7 +138,12 @@ def run_llama(
                     log_filepath=log_filepath,
                 )
 
-                judge_sys, judge_usr = _build_judge_prompts(text, explain_high, explain_low)
+                if random.random() < 0.5:
+                    explain_1, explain_2 = explain_high, explain_low
+                else:
+                    explain_1, explain_2 = explain_low, explain_high
+
+                judge_sys, judge_usr = _build_judge_prompts(text, explain_1, explain_2)
                 judge_raw = llama_call(
                     judge_usr,
                     judge_sys,

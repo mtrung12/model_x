@@ -1,5 +1,6 @@
 import os
 import asyncio
+import random
 import pandas as pd
 from typing import Optional
 
@@ -20,7 +21,7 @@ EXPLAINER_TEMPERATURE = 0.7
 EXPLAINER_MAX_TOKENS = 512
 EXPLAINER_TOP_P = 0.9
 JUDGE_TEMPERATURE = 0.0
-JUDGE_MAX_TOKENS = 256
+JUDGE_MAX_TOKENS = 512
 JUDGE_TOP_P = 1.0
 
 
@@ -171,7 +172,12 @@ async def process_record(
         explain_high = await _run_explainer(trait, "high", text, sim_context, model_name, log_path, int(idx))
         explain_low = await _run_explainer(trait, "low", text, sim_context, model_name, log_path, int(idx))
 
-        judge_raw = await _run_judge(text, explain_high, explain_low, model_name, log_path, int(idx), trait)
+        if random.random() < 0.5:
+            explain_1, explain_2 = explain_high, explain_low
+        else:
+            explain_1, explain_2 = explain_low, explain_high
+
+        judge_raw = await _run_judge(text, explain_1, explain_2, model_name, log_path, int(idx), trait)
         pred = _parse_judge_output(judge_raw)
 
         return {
