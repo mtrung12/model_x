@@ -1,7 +1,9 @@
+import gc
 import os
 import time
 import random
 import pandas as pd
+import torch
 
 from ..prompts import (
     TRAITS,
@@ -12,7 +14,7 @@ from ..prompts import (
 )
 from ...common.trait_defs import TRAIT_COLS, TRAIT_MAP
 from ...common.reporters import write_classification_report
-from ...clients.llama_client import llama_call
+from ...clients.llama_client import llama_call, clear_pipe_cache
 from ..retriever import RAGRetriever
 
 
@@ -124,7 +126,6 @@ def run_llama(
                     model_name,
                     max_new_tokens=EXPLAINER_MAX_TOKENS,
                     log_filepath=log_filepath,
-                    clear_cache_after=True,
                 )
 
                 explain_low_sys, explain_low_usr = _build_explainer_prompts(
@@ -156,6 +157,11 @@ def run_llama(
             except Exception as e:
                 errors.append(f"{trait}: {e}")
                 record_results[trait] = None
+
+        # Aggressive memory cleanup between records to prevent OOM
+        clear_pipe_cache(model_name)
+        gc.collect()
+        torch.cuda.empty_cache()
 
         if errors:
             fail_count += 1

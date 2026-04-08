@@ -28,8 +28,6 @@ def get_HF_pipeline(model_name: str, max_new_tokens: int = 512):
         device_map="auto",
         attn_implementation="sdpa",
     )
-    model = torch.compile(model, mode="reduce-overhead")
-
     gen_config = {
         "max_new_tokens": max_new_tokens,
         "temperature": 0.0,
@@ -74,9 +72,11 @@ def llama_call(
     )
     outputs = pipe(prompt)
     result = outputs[0]["generated_text"]
+    del outputs
+    torch.cuda.empty_cache()
+    gc.collect()
     if log_filepath:
         log_to_file(log_filepath, system_prompt, user_prompt, result)
-    del outputs
     if clear_cache_after:
         clear_pipe_cache(model_name)
     return result
