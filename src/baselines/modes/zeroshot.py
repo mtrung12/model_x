@@ -1,4 +1,4 @@
-from src.common.prompts.baseline import ZEROSHOT_SYS_PROMPT
+from src.baselines.prompts import ZEROSHOT_SYS_PROMPT
 
 
 def build_system_prompt(trait_name: str):

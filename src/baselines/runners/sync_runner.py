@@ -4,7 +4,7 @@ import pandas as pd
 
 from src.clients.llama_client import llama_call
 from src.common.parsers import parse_llm_output
-from src.common.prompts.baseline import (
+from src.baselines.prompts import (
     NORMAL_USER_PROMPT,
     COT_SYS_PROMPT,
     ONESHOT_SYS_PROMPT,

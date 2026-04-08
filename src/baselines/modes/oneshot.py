@@ -1,4 +1,4 @@
-from src.common.prompts.baseline import ONESHOT_SYS_PROMPT
+from src.baselines.prompts import ONESHOT_SYS_PROMPT
 
 
 def build_system_prompt(trait_name: str, example_text: str, example_label: str):

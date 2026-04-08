@@ -1,0 +1,41 @@
+======================================================================\nPersonality Trait Detection — Classification Report\n======================================================================\n\nRun ID           : 20260408-115814\nModel            : gpt-4o-mini\nTest file        : ../../data/split/essays/minor_test.csv\n# Records        : 2\n# Failed         : 0\nPrompt mode      : model_x\nTop-k RAG        : 3\nVector DB        : ../../data/vector_db/essays\nMax Concurrency  : 3\nElapsed (sec)    : 107.26\nThroughput (r/s) : 0.02\n----------------------------------------------------------------------\n\n--- cEXT (Extraversion) ---\n              precision    recall  f1-score   support
+
+        high       0.50      1.00      0.67         1
+         low       0.00      0.00      0.00         1
+
+    accuracy                           0.50         2
+   macro avg       0.25      0.50      0.33         2
+weighted avg       0.25      0.50      0.33         2
+\n  Valid pairs: 2/2\n\n--- cNEU (Neuroticism) ---\n              precision    recall  f1-score   support
+
+        high       1.00      1.00      1.00         2
+         low       0.00      0.00      0.00         0
+
+   micro avg       1.00      1.00      1.00         2
+   macro avg       0.50      0.50      0.50         2
+weighted avg       1.00      1.00      1.00         2
+\n  Valid pairs: 2/2\n\n--- cAGR (Agreeableness) ---\n              precision    recall  f1-score   support
+
+        high       0.00      0.00      0.00       0.0
+         low       0.00      0.00      0.00       2.0
+
+    accuracy                           0.00       2.0
+   macro avg       0.00      0.00      0.00       2.0
+weighted avg       0.00      0.00      0.00       2.0
+\n  Valid pairs: 2/2\n\n--- cCON (Conscientiousness) ---\n              precision    recall  f1-score   support
+
+        high       1.00      1.00      1.00         2
+         low       0.00      0.00      0.00         0
+
+   micro avg       1.00      1.00      1.00         2
+   macro avg       0.50      0.50      0.50         2
+weighted avg       1.00      1.00      1.00         2
+\n  Valid pairs: 2/2\n\n--- cOPN (Openness to Experience) ---\n              precision    recall  f1-score   support
+
+        high       0.50      1.00      0.67         1
+         low       0.00      0.00      0.00         1
+
+    accuracy                           0.50         2
+   macro avg       0.25      0.50      0.33         2
+weighted avg       0.25      0.50      0.33         2
+\n  Valid pairs: 2/2\n\n======================================================================\nEnd of Report\n

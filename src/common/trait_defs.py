@@ -3,7 +3,7 @@ TRAIT_MAP = {
     "cNEU": "Neuroticism",
     "cAGR": "Agreeableness",
     "cCON": "Conscientiousness",
-    "cOPN": "Openness",
+    "cOPN": "Openness to Experience",
 }
 
 TRAIT_COL_TO_NAME = TRAIT_MAP
