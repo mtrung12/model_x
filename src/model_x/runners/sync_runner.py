@@ -123,6 +123,7 @@ def run_llama(
                     model_name,
                     max_new_tokens=EXPLAINER_MAX_TOKENS,
                     log_filepath=log_filepath,
+                    clear_cache_after=True,
                 )
 
                 explain_low_sys, explain_low_usr = _build_explainer_prompts(

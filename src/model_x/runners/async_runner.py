@@ -55,6 +55,7 @@ async def _call_async(
         log_filepath=log_filepath,
         record_idx=record_idx,
         trait_col=trait_col,
+        clear_cache_after=True,
     )
 
 

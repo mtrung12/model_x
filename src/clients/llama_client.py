@@ -49,12 +49,29 @@ def create_message_HF(system_prompt_str: str, user_prompt_str: str):
     ]
 
 
+def clear_pipe_cache(model_name: str = None, max_new_tokens: int = None):
+    global _pipe_cache
+    if model_name is None:
+        _pipe_cache.clear()
+    elif max_new_tokens is None:
+        for key in list(_pipe_cache.keys()):
+            if key[0] == model_name:
+                del _pipe_cache[key]
+    else:
+        key = (model_name, max_new_tokens)
+        if key in _pipe_cache:
+            del _pipe_cache[key]
+    gc.collect()
+    torch.cuda.empty_cache()
+
+
 def llama_call(
     user_prompt: str,
     system_prompt: str,
     model_name: str,
     max_new_tokens: int = 512,
     log_filepath: str = None,
+    clear_cache_after: bool = False,
 ):
     pipe = get_HF_pipeline(model_name, max_new_tokens)
     message = create_message_HF(system_prompt, user_prompt)
@@ -66,8 +83,8 @@ def llama_call(
     if log_filepath:
         log_to_file(log_filepath, system_prompt, user_prompt, result)
     del outputs
-    gc.collect()
-    torch.cuda.empty_cache()
+    if clear_cache_after:
+        clear_pipe_cache(model_name, max_new_tokens)
     return result
 
 
@@ -79,12 +96,13 @@ async def llama_call_async(
     log_filepath: str = None,
     record_idx: int = None,
     trait_col: str = None,
+    clear_cache_after: bool = False,
 ):
     import asyncio
 
     loop = asyncio.get_event_loop()
     result = await loop.run_in_executor(
-        None, llama_call, user_prompt, system_prompt, model_name, max_new_tokens, None
+        None, llama_call, user_prompt, system_prompt, model_name, max_new_tokens, None, clear_cache_after
     )
     if log_filepath:
         await log_to_file_async(log_filepath, system_prompt, user_prompt, result, record_idx=record_idx, trait_col=trait_col)
